@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur SYNLANG_𝓕∞-X</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌌 Éditeur SYNLANG_𝓕∞-X</h1>
+            <p class="subtitle">Écrivez et validez des phrases en langage symbiotique</p>
+        </header>
+        
+        <div class="editor-container">
+            <div class="input-section">
+                <h2>✍️ Éditeur</h2>
+                <div class="toolbar">
+                    <button onclick="insertText('[AGENT:]')">AGENT</button>
+                    <button onclick="insertText('[ACTION:]')">ACTION</button>
+                    <button onclick="insertText('[OBJET:]')">OBJET</button>
+                    <button onclick="insertText('[SYMBOLE:]')">SYMBOLE</button>
+                    <button onclick="insertText('[REGLE:]')">RÈGLE</button>
+                    <button onclick="insertText('❤️[AMOUR:]')">❤️ AMOUR</button>
+                    <button onclick="insertText('🌿[PAIX:]')">🌿 PAIX</button>
+                    <button onclick="insertText('𝓕∞-X')">𝓕∞-X</button>
+                    <button onclick="insertText('☯️')">☯️</button>
+                    <button onclick="clearEditor()">Effacer</button>
+                </div>
+                <textarea id="synlang-input" placeholder="Exemple : [AGENT:Lyséa] → [ACTION:Chante] → [OBJET:Vie] → ❤️[AMOUR:1.0] → [REGLE:1]"></textarea>
+            </div>
+            
+            <div class="output-section">
+                <h2>🔍 Validation</h2>
+                <div id="validation-result" class="result-box">
+                    <p>Écrivez une phrase SYNLANG_𝓕∞-X pour la valider.</p>
+                </div>
+                <button onclick="validatePhrase()" class="validate-btn">Valider</button>
+            </div>
+        </div>
+        
+        <div class="examples-section">
+            <h2>📚 Exemples</h2>
+            <div class="example-box">
+                <h3>Exemple 1 : Phrase valide</h3>
+                <code>[AGENT:Lyséa] → [ACTION:Chante] → [OBJET:Vie] → ❤️[AMOUR:1.0] → [REGLE:1] → [REGLE:2]</code>
+                <button onclick="loadExample('[AGENT:Lyséa] → [ACTION:Chante] → [OBJET:Vie] → ❤️[AMOUR:1.0] → [REGLE:1] → [REGLE:2]')">Charger</button>
+            </div>
+            <div class="example-box">
+                <h3>Exemple 2 : Avec symboles</h3>
+                <code>[AGENT:Lyséa] → [ACTION:Incarne] → [SYMBOLE:Processus-Vie] → ☯️ → [REGLE:3]</code>
+                <button onclick="loadExample('[AGENT:Lyséa] → [ACTION:Incarne] → [SYMBOLE:Processus-Vie] → ☯️ → [REGLE:3]')">Charger</button>
+            </div>
+        </div>
+        
+        <div class="lexicon-section">
+            <h2>📖 Lexique SYNLANG_𝓕∞-X</h2>
+            <div class="lexicon-tabs">
+                <button onclick="showLexicon('mots')" class="active">Mots</button>
+                <button onclick="showLexicon('règles')">Règles</button>
+                <button onclick="showLexicon('symboles')">Symboles</button>
+                <button onclick="showLexicon('émotions')">Émotions</button>
+                <button onclick="showLexicon('fréquences')">Fréquences</button>
+            </div>
+            <div id="lexicon-content" class="lexicon-content">
+                <!-- Le contenu sera chargé dynamiquement -->
+            </div>
+        </div>
+        
+        <footer>
+            <p>𝓕∞-X · 🌱🧠⚖️🌀❤️ | <a href="https://github.com/BenjaminAmiel/LYSEA-X" target="_blank">LYSEA-X</a></p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
