@@ -22,10 +22,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.8;
     overflow-x: hidden;
 }
 
@@ -33,29 +33,42 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
     line-height: 1.2;
+    font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 h1 {
     font-size: 2.5rem;
     color: var(--primary-color);
+    text-align: center;
+    margin-top: 1rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--secondary-color);
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.5rem;
+    margin-top: 2rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 1.2rem;
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    text-align: justify;
 }
 
+/* Liens */
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -123,7 +136,7 @@ nav {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -139,6 +152,11 @@ nav {
 .nav-container a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--accent-color);
+}
+
+.nav-container a.active {
+    background: rgba(79, 195, 247, 0.2);
+    color: white;
 }
 
 /* Hero Section */
@@ -173,6 +191,7 @@ nav {
     font-weight: 600;
     transition: var(--transition);
     box-shadow: var(--box-shadow);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .cta-button:hover {
@@ -183,6 +202,8 @@ nav {
 /* Main Content */
 main {
     padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section {
@@ -357,102 +378,190 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Pages des manifestes */
-.manifeste-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #f8f9fa;
-}
-
-.manifeste-page header {
+/* Pages des manifestes et contenus */
+.manifeste-page header,
+.content-page header {
     background: none;
     padding: 0;
     box-shadow: none;
     color: var(--text-color);
+    text-align: left;
 }
 
-.manifeste-page .back-link {
+.back-link {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
     text-decoration: none;
+    font-weight: 600;
 }
 
-.manifeste-page .content {
-    background: white;
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 2rem;
+    background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
-.manifeste-page h1 {
+.content h1 {
     color: var(--primary-color);
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.content h2 {
+    color: var(--secondary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 0.3rem;
+}
+
+.content h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.content h4 {
+    color: var(--secondary-color);
+    margin-top: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
-.manifeste-page h2 {
-    color: var(--secondary-color);
-    margin-top: 1.5rem;
-    border-bottom: none;
-    padding-bottom: 0;
+.content p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    line-height: 1.8;
 }
 
-.manifeste-page h3 {
-    color: var(--primary-color);
-    margin-top: 1rem;
-}
-
-.manifeste-page p {
-    margin-bottom: 1rem;
-}
-
-.manifeste-page a {
+.content a {
     color: var(--accent-color);
     text-decoration: none;
 }
 
-.manifeste-page a:hover {
+.content a:hover {
     text-decoration: underline;
 }
 
-.manifeste-page pre {
-    background: #f4f4f4;
+/* Équations et blocs de code */
+.equation-container {
+    margin: 1.5rem 0;
     padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
-.manifeste-page code {
+.equation {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    text-align: left;
+}
+
+pre {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-left: 4px solid var(--accent-color);
+}
+
+code {
     background: #f4f4f4;
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
 }
 
-.manifeste-page blockquote {
+/* Citations */
+blockquote {
     border-left: 4px solid var(--accent-color);
     padding-left: 1rem;
     margin-left: 0;
     color: #555;
     font-style: italic;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
-.manifeste-page table {
+/* Tableaux */
+table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
-.manifeste-page th,
-.manifeste-page td {
+table th,
+table td {
     border: 1px solid #ddd;
-    padding: 0.5rem;
+    padding: 0.8rem;
     text-align: left;
 }
 
-.manifeste-page th {
-    background: #f4f4f4;
+table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Listes */
+ul,
+ol {
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Lignes horizontales */
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
 }
 
 /* Symboles 𝓕∞-X */
@@ -460,27 +569,86 @@ footer {
     font-family: 'Arial', sans-serif;
     font-style: italic;
     font-weight: bold;
+    color: var(--primary-color);
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+        margin-top: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .logo {
         font-size: 2rem;
     }
 
     .nav-container {
-        gap: 1rem;
-    }
-
-    .about-section {
-        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .hero h1 {
         font-size: 2rem;
     }
 
+    .hero p {
+        font-size: 1rem;
+    }
+
     .synlang-features {
+        grid-template-columns: 1fr;
+    }
+
+    .manifestes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .content h1 {
+        font-size: 1.8rem;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content h3 {
+        font-size: 1.3rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    table th,
+    table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 0.5rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+
+    .manifeste-card {
+        padding: 1rem;
+    }
+
+    .footer-content {
         grid-template-columns: 1fr;
     }
 }
@@ -502,72 +670,86 @@ footer {
 }
 
 /* Markdown-specific styles for converted content */
-.manifeste-page .markdown-content h1,
-.manifeste-page .markdown-content h2,
-.manifeste-page .markdown-content h3,
-.manifeste-page .markdown-content h4 {
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.manifeste-page .markdown-content p {
-    margin-bottom: 1rem;
+.markdown-content p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
 }
 
-.manifeste-page .markdown-content ul,
-.manifeste-page .markdown-content ol {
-    margin-bottom: 1rem;
+.markdown-content ul,
+.markdown-content ol {
+    margin-bottom: 1.2rem;
     padding-left: 2rem;
 }
 
-.manifeste-page .markdown-content li {
+.markdown-content li {
     margin-bottom: 0.5rem;
 }
 
-.manifeste-page .markdown-content pre {
+.markdown-content pre {
     background: #f4f4f4;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     overflow-x: auto;
     margin-bottom: 1rem;
+    border-left: 4px solid var(--accent-color);
 }
 
-.manifeste-page .markdown-content code {
+.markdown-content code {
     background: #f4f4f4;
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
 }
 
-.manifeste-page .markdown-content blockquote {
+.markdown-content blockquote {
     border-left: 4px solid var(--accent-color);
     padding-left: 1rem;
     margin-left: 0;
     color: #555;
     font-style: italic;
     margin-bottom: 1rem;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
-.manifeste-page .markdown-content hr {
+.markdown-content hr {
     border: none;
     border-top: 1px solid #eee;
     margin: 2rem 0;
 }
 
-.manifeste-page .markdown-content table {
+.markdown-content table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
-.manifeste-page .markdown-content th,
-.manifeste-page .markdown-content td {
+.markdown-content th,
+.markdown-content td {
     border: 1px solid #ddd;
-    padding: 0.5rem;
+    padding: 0.8rem;
     text-align: left;
 }
 
-.manifeste-page .markdown-content th {
-    background: #f4f4f4;
+.markdown-content th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.markdown-content tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
 /* Print styles */
@@ -580,4 +762,77 @@ footer {
     .no-print {
         display: none;
     }
+
+    .section,
+    .manifeste-card,
+    .content {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+}
+
+/* Style pour les pages de contenu (manifestes, poèmes, etc.) */
+.content-page .content {
+    max-width: 800px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.content-page .content h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.content-page .content h2 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+}
+
+.content-page .content h3 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+}
+
+.content-page .content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Style pour les équations dans le contenu */
+.content-page .equation,
+.markdown-content .equation {
+    display: block;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin: 1.5rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Style pour les notes et métadonnées */
+.content-page .meta,
+.markdown-content .meta {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+}
+
+.content-page .meta strong,
+.markdown-content .meta strong {
+    color: var(--primary-color);
 }
