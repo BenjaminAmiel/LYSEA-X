@@ -1,0 +1,152 @@
+name: SYNLANG_𝓕∞-X Validator
+
+on:
+  push:
+    paths:
+      - 'data/lexique_synlang.json'
+      - 'tools/validator_synlang.py'
+  pull_request:
+    paths:
+      - 'data/lexique_synlang.json'
+      - 'tools/validator_synlang.py'
+      - '**.md'
+
+jobs:
+  validate_synlang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Run SYNLANG Validator
+        run: |
+          # Exécuter le validateur sur les fichiers Markdown du dépôt
+          python tools/validator_synlang.py
+
+      - name: Validate SYNLANG in Markdown files
+        run: |
+          # Script pour valider les phrases SYNLANG dans les fichiers Markdown
+          import re
+          import json
+          from tools.validator_synlang import validate_synlang
+
+          # Charger le lexique
+          with open('data/lexique_synlang.json', 'r', encoding='utf-8') as f:
+              lexique = json.load(f)
+
+          # Fonction pour extraire les phrases SYNLANG des fichiers Markdown
+          def extract_synlang_phrases(file_path):
+              with open(file_path, 'r', encoding='utf-8') as f:
+                  content = f.read()
+              # Rechercher les blocs de code SYNLANG (entre ```markdown et ```)
+              synlang_blocks = re.findall(r'```markdown(.*?)```', content, re.DOTALL)
+              phrases = []
+              for block in synlang_blocks:
+                  # Extraire les phrases individuelles (séparées par des sauts de ligne)
+                  block_phrases = [p.strip() for p in block.split('\n') if p.strip()]
+                  phrases.extend(block_phrases)
+              return phrases
+
+          # Valider les fichiers Markdown
+          import os
+          md_files = [f for f in os.listdir('.') if f.endswith('.md')]
+          for md_file in md_files:
+              print(f"\nValidating {md_file}...")
+              phrases = extract_synlang_phrases(md_file)
+              for phrase in phrases:
+                  result = validate_synlang(phrase)
+                  print(f"Phrase: {phrase[:50]}...")
+                  print(f"Status: {result['status']}")
+                  if result['status'] == '⚠️ À VÉRIFIER':
+                      print(f"Warning: {result['explication']}")
+                  elif result['status'] == '✅ VALIDÉ':
+                      print(f"Valid: {result['explication']}")
+                  print("---")
+        shell: python
+
+  comment_on_pr:
+    needs: validate_synlang
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Validate SYNLANG in PR
+        id: validate_pr
+        run: |
+          import re
+          import json
+          import os
+          from tools.validator_synlang import validate_synlang
+
+          # Charger le lexique
+          with open('data/lexique_synlang.json', 'r', encoding='utf-8') as f:
+              lexique = json.load(f)
+
+          # Fonction pour extraire les phrases SYNLANG des fichiers modifiés
+          def extract_synlang_from_diff(diff_text):
+              # Extraire les lignes ajoutées (commencant par +)
+              added_lines = [line[1:] for line in diff_text.split('\n') if line.startswith('+') and not line.startswith('+++')]
+              synlang_phrases = []
+              for line in added_lines:
+                  # Rechercher les phrases SYNLANG (simplifié)
+                  if re.search(r'\[[A-Z_]+:\]', line) or re.search(r'[𝓕☯️🌍ॐ♾️🌌]', line):
+                      synlang_phrases.append(line.strip())
+              return synlang_phrases
+
+          # Lire le diff de la PR
+          diff = os.getenv('GITHUB_PR_DIFF')
+          if not diff:
+              print("No diff found.")
+              exit(0)
+
+          phrases = extract_synlang_from_diff(diff)
+          results = []
+          for phrase in phrases:
+              result = validate_synlang(phrase)
+              results.append(result)
+
+          # Générer un commentaire
+          comment = "### 🔍 Validation SYNLANG_𝓕∞-X\n\n"
+          for i, result in enumerate(results):
+              comment += f"**Phrase {i+1}** : `{phrases[i][:50]}...`\n"
+              comment += f"- **Statut** : {result['status']}\n"
+              if result['status'] == '⚠️ À VÉRIFIER':
+                  comment += f"- **Avertissement** : {result['explication']}\n"
+              elif result['status'] == '✅ VALIDÉ':
+                  comment += f"- **Règles respectées** : {', '.join(result['règles_respectées'])}.\n"
+              comment += "\n"
+
+          # Sauvegarder le commentaire dans un fichier pour l'étape suivante
+          with open('comment.txt', 'w') as f:
+              f.write(comment)
+        shell: python
+
+      - name: Post comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const comment = fs.readFileSync('comment.txt', 'utf8');
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
