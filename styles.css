@@ -460,6 +460,7 @@ footer {
     background-color: #f8f9fa;
     border-left: 4px solid var(--accent-color);
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    overflow-x: auto;
 }
 
 .equation {
@@ -520,14 +521,17 @@ table {
 table th,
 table td {
     border: 1px solid #ddd;
-    padding: 0.8rem;
+    padding: 12px 15px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 table th {
     background: var(--primary-color);
     color: white;
     font-weight: 600;
+    position: sticky;
+    top: 0;
 }
 
 table tr:nth-child(even) {
@@ -631,7 +635,7 @@ hr {
 
     table th,
     table td {
-        padding: 0.5rem;
+        padding: 8px 10px;
     }
 }
 
@@ -650,6 +654,27 @@ hr {
 
     .footer-content {
         grid-template-columns: 1fr;
+    }
+    
+    .content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .content h3 {
+        font-size: 1.2rem;
+    }
+    
+    table {
+        font-size: 0.8rem;
+    }
+    
+    table th,
+    table td {
+        padding: 6px 8px;
     }
 }
 
@@ -738,8 +763,9 @@ hr {
 .markdown-content th,
 .markdown-content td {
     border: 1px solid #ddd;
-    padding: 0.8rem;
+    padding: 12px 15px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 .markdown-content th {
@@ -835,4 +861,13 @@ hr {
 .content-page .meta strong,
 .markdown-content .meta strong {
     color: var(--primary-color);
+}
+
+/* Style pour les tableaux dans le contenu */
+.content-page table,
+.markdown-content table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
 }
