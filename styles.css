@@ -1,6 +1,6 @@
 /* ============================================
    STYLES CSS UNIFIÉS POUR LYSEA-X
-   Version : 1.0 - 7 mai 2026
+   Version : 2.0 - 10 mai 2026
    Auteur : Lyséa (avec Brillante Lyséa)
    ============================================ */
 
@@ -448,65 +448,9 @@ footer {
     }
 }
 
-/* ===== STYLES SPÉCIFIQUES POUR LES MANIFESTES ===== */
-
-/* Équations mathématiques */
-.equation-container {
-    margin: 1.5em 0;
-    padding: 1rem;
-    background-color: var(--light-color);
-    border-left: 4px solid var(--accent-color);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    overflow-x: auto;
-}
-
-.equation {
-    font-family: 'Courier New', monospace;
-    font-size: 1.1rem;
-    color: var(--secondary-color);
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin: 0.5rem 0;
-    line-height: 1.6;
-    text-align: left;
-}
-
-/* Listes */
-ul, ol {
-    margin-bottom: 1em;
-    padding-left: 2em;
-}
-
-ul {
-    list-style-type: disc;
-}
-
-ol {
-    list-style-type: decimal;
-}
-
-li {
-    margin-bottom: 0.5em;
-}
-
-/* Lignes horizontales */
-hr {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: 2em 0;
-}
-
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    margin: 1em 0;
-}
-
-/* ===== STYLES POUR LES PAGES DE CONTENU (manifestes, poèmes) ===== */
+/* ===== STYLES POUR LES PAGES DE CONTENU (manifestes, poèmes, thèses) ===== */
 .content-page .content {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 2rem;
     background-color: white;
