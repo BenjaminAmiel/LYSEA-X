@@ -64,6 +64,7 @@ body {
     color: var(--text-primary);
     background-color: var(--white);
     overflow-x: hidden;
+    word-break: break-word;
 }
 
 /* --- Typographie --- */
@@ -196,6 +197,7 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--spacing-lg) var(--spacing-md);
+    word-break: break-word;
 }
 
 .content-page {
@@ -204,6 +206,7 @@ main {
 
 .content {
     padding: 0;
+    word-break: break-word;
 }
 
 .section {
@@ -234,6 +237,7 @@ main {
     padding: var(--spacing-md);
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
+    word-break: break-word;
 }
 
 .manifest-card:hover, .resource-card:hover, .feature-card:hover, .philosophy-card:hover {
@@ -268,6 +272,7 @@ main {
     font-weight: 600;
     margin-top: var(--spacing-sm);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .read-button:hover, .cta-button:hover {
@@ -282,15 +287,22 @@ main {
 /* --- Tableaux --- */
 table {
     width: 100%;
-    border-collapse: collapse;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
     margin: var(--spacing-md) 0;
     font-size: 0.95rem;
+    border-collapse: collapse;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius);
+    word-break: normal;
 }
 
 th, td {
     padding: var(--spacing-sm);
     text-align: left;
     border: var(--border-thin) solid var(--medium-bg);
+    white-space: nowrap;
 }
 
 th {
@@ -309,6 +321,7 @@ tr:nth-child(even) {
     margin: var(--spacing-md) 0;
     border-radius: var(--border-radius);
     border-left: var(--border-thick) solid;
+    word-break: break-word;
 }
 
 .highlight-box {
@@ -353,12 +366,15 @@ tr:nth-child(even) {
     padding: var(--spacing-md);
     background-color: var(--light-bg);
     border-radius: var(--border-radius);
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 .equation {
     font-size: 1.5rem;
     font-family: var(--font-mono);
     color: var(--primary-color);
+    white-space: nowrap;
 }
 
 /* --- Meta et Footer --- */
@@ -414,6 +430,7 @@ hr {
 .markdown-content {
     max-width: 100%;
     overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .markdown-content h1,
@@ -428,6 +445,7 @@ hr {
 
 .markdown-content p {
     margin-bottom: var(--spacing-md);
+    word-break: break-word;
 }
 
 .markdown-content ul,
@@ -438,6 +456,7 @@ hr {
 
 .markdown-content li {
     margin-bottom: var(--spacing-xs);
+    word-break: break-word;
 }
 
 .markdown-content blockquote {
@@ -448,6 +467,7 @@ hr {
     font-style: italic;
     background-color: var(--light-bg);
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    word-break: break-word;
 }
 
 .markdown-content pre {
@@ -457,6 +477,7 @@ hr {
     overflow-x: auto;
     margin: var(--spacing-md) 0;
     border-left: var(--border-thick) solid var(--primary-color);
+    word-break: break-word;
 }
 
 .markdown-content code {
@@ -465,6 +486,7 @@ hr {
     border-radius: 3px;
     font-family: var(--font-mono);
     font-size: 0.9em;
+    word-break: break-word;
 }
 
 /* --- Responsive Design --- */
@@ -477,6 +499,7 @@ hr {
 
     .manifest-grid, .resource-grid, .contact-grid, .feature-grid, .philosophy-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
     }
 
     h1 {
@@ -497,6 +520,25 @@ hr {
 
     main {
         padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    /* Réduire la taille des polices dans les tableaux sur mobile */
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .manifest-card, .resource-card, .contact-card, .feature-card, .philosophy-card {
+        padding: var(--spacing-sm);
+    }
+
+    .highlight-box, .theorem-box, .solution-box, .limit-box, .proof-box, .definition-box {
+        padding: var(--spacing-sm);
+        margin: var(--spacing-sm) 0;
     }
 }
 
@@ -520,6 +562,15 @@ hr {
     .nav-container a {
         font-size: 0.9rem;
         padding: var(--spacing-xs);
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 0.4rem;
+        font-size: 0.8rem;
     }
 }
 
