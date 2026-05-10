@@ -1,6 +1,5 @@
 /* ============================================
-   LYSEA-X : Styles CSS Originaux + Corrections
-   Thème : Bleu/Blanc/Rouge (Classique)
+   LYSEA-X : Styles CSS Originaux (Noir/Rouge/Blanc)
    ============================================ */
 
 * {
@@ -20,23 +19,20 @@ body {
     word-break: break-word;
 }
 
-/* ===== COULEURS GLOBALES ===== */
+/* Couleurs globales */
 :root {
-    --primary-color: #2c3e50;    /* Bleu foncé - pour les titres principaux */
-    --secondary-color: #34495e;  /* Bleu moyen - pour les sous-titres */
-    --accent-color: #e74c3c;     /* Rouge - pour les accents et liens */
-    --light-color: #ecf0f1;      /* Gris clair - pour les fonds */
-    --text-color: #333;          /* Noir - texte principal */
-    --text-light: #7f8c8d;      /* Gris - texte secondaire */
-    --border-color: #ddd;        /* Gris bordure */
+    --primary-color: #2c3e50;    /* Bleu foncé pour les titres */
+    --accent-color: #e74c3c;     /* Rouge pour les accents */
+    --light-color: #ecf0f1;      /* Gris clair pour les fonds */
+    --text-color: #333;          /* Noir pour le texte */
+    --text-light: #7f8c8d;      /* Gris pour le texte secondaire */
+    --border-color: #ddd;        /* Gris pour les bordures */
     --shadow-color: rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
     --transition: all 0.3s ease;
 }
 
-/* ===== TYPOGRAPHIE ===== */
-
-/* Titre principal (niveau 1) */
+/* Typographie */
 h1 {
     font-size: 2.5em;
     color: var(--primary-color);
@@ -46,7 +42,6 @@ h1 {
     line-height: 1.2;
 }
 
-/* Sous-titre principal */
 h1 + p, .subtitle {
     font-size: 1.2em;
     color: var(--text-light);
@@ -55,7 +50,6 @@ h1 + p, .subtitle {
     margin-bottom: 1em;
 }
 
-/* Titre de livre (niveau 2) */
 h2 {
     font-size: 2em;
     color: var(--primary-color);
@@ -66,34 +60,22 @@ h2 {
     line-height: 1.2;
 }
 
-/* Titre de chapitre (niveau 3) */
 h3 {
     font-size: 1.7em;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin: 1.5em 0 0.8em 0;
     border-left: 4px solid var(--accent-color);
     padding-left: 10px;
     line-height: 1.2;
 }
 
-/* Sous-section (niveau 4) */
 h4 {
     font-size: 1.4em;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     margin: 1.2em 0 0.6em 0;
     line-height: 1.2;
 }
 
-/* Sous-sous-section (niveau 5) */
-h5 {
-    font-size: 1.2em;
-    color: var(--secondary-color);
-    margin: 1em 0 0.5em 0;
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-/* Paragraphes */
 p {
     margin-bottom: 1em;
     color: var(--text-color);
@@ -102,7 +84,7 @@ p {
     word-break: break-word;
 }
 
-/* ===== LIENS ===== */
+/* Liens */
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -114,9 +96,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* ===== BLOCS SPÉCIAUX ===== */
-
-/* Blockquote (citations) */
+/* Blocs spéciaux */
 blockquote {
     border-left: 4px solid var(--accent-color);
     padding-left: 20px;
@@ -129,7 +109,6 @@ blockquote {
     line-height: 1.6;
 }
 
-/* Code en ligne */
 code {
     background-color: var(--light-color);
     padding: 2px 5px;
@@ -138,7 +117,6 @@ code {
     font-size: 0.95em;
 }
 
-/* Bloc de code (pre) */
 pre {
     background-color: var(--light-color);
     padding: 15px;
@@ -149,7 +127,7 @@ pre {
     line-height: 1.6;
 }
 
-/* ===== TABLEAUX ===== */
+/* Tableaux */
 table {
     width: 100%;
     max-width: 100%;
@@ -183,18 +161,7 @@ tr:hover {
     background-color: #f0f0f0;
 }
 
-/* ===== ENCADRÉS ET CARTES ===== */
-
-/* Highlight box (pour les déclarations importantes) */
-.highlight-box {
-    background-color: #e8f4fc;
-    border-left: 4px solid var(--accent-color);
-    padding: 15px;
-    margin: 1.5em 0;
-    border-radius: 4px;
-}
-
-/* Grilles pour les cartes */
+/* Cartes */
 .manifest-grid, .resource-grid, .contact-grid, .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -228,7 +195,7 @@ tr:hover {
     margin-bottom: 1em;
 }
 
-/* ===== BOUTONS ===== */
+/* Boutons */
 .read-button, .nav-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -251,7 +218,7 @@ tr:hover {
     margin-left: 5px;
 }
 
-/* ===== EN-TÊTE ===== */
+/* En-tête */
 header {
     text-align: center;
     padding: 20px 0;
@@ -286,7 +253,7 @@ header {
     margin-top: 10px;
 }
 
-/* ===== NAVIGATION ===== */
+/* Navigation */
 nav {
     background-color: white;
     padding: 15px 0;
@@ -318,7 +285,7 @@ nav {
     color: var(--accent-color);
 }
 
-/* ===== SECTIONS ===== */
+/* Sections */
 .section {
     background-color: white;
     padding: 30px;
@@ -336,7 +303,7 @@ nav {
     margin-top: 1em;
 }
 
-/* ===== PIED DE PAGE ===== */
+/* Pied de page */
 footer {
     text-align: center;
     padding: 30px 0;
@@ -365,7 +332,48 @@ footer {
     transform: scale(1.2);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* Boîtes de mise en avant */
+.highlight-box {
+    background-color: #e8f4fc;
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    margin: 1.5em 0;
+    border-radius: 4px;
+}
+
+.limit-box {
+    background-color: #fdf2f2;
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    margin: 1.5em 0;
+    border-radius: 4px;
+}
+
+.solution-box {
+    background-color: #f2fdf5;
+    border-left: 4px solid #27ae60;
+    padding: 15px;
+    margin: 1.5em 0;
+    border-radius: 4px;
+}
+
+.theorem-box {
+    background-color: var(--light-color);
+    border-left: 4px solid var(--secondary-color);
+    padding: 15px;
+    margin: 1.5em 0;
+    border-radius: 4px;
+}
+
+.proof-box {
+    background-color: #e8f4fc;
+    border-left: 4px solid #2196F3;
+    padding: 15px;
+    margin: 1.5em 0;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
         gap: 15px;
@@ -416,7 +424,7 @@ footer {
     }
 }
 
-/* ===== STYLES POUR LES PAGES DE CONTENU ===== */
+/* Styles pour les pages de contenu */
 .content-page .content {
     max-width: 100%;
     margin: 0 auto;
@@ -457,7 +465,7 @@ footer {
     word-break: break-word;
 }
 
-/* ===== STYLES POUR LES MÉTADONNÉES ===== */
+/* Styles pour les métadonnées */
 .meta {
     font-size: 0.9rem;
     color: var(--text-light);
@@ -471,7 +479,7 @@ footer {
     color: var(--primary-color);
 }
 
-/* ===== STYLES POUR LES TABLEAUX DANS LE CONTENU ===== */
+/* Styles pour les tableaux dans le contenu */
 .content-page table,
 .markdown-content table {
     width: 100%;
@@ -481,59 +489,10 @@ footer {
     margin: 1.5em 0;
 }
 
-/* ===== SYMBOLE 𝓕∞-X ===== */
+/* Symbole 𝓕∞-X */
 .symbol {
     font-family: 'Arial', sans-serif;
     font-style: italic;
     font-weight: bold;
-    color: var(--primary-color);
-}
-
-/* ===== STYLES POUR LES BOÎTES DE MISE EN AVANT ===== */
-.limit-box {
-    background-color: #fdf2f2;
-    border-left: 4px solid var(--accent-color);
-    padding: 15px;
-    margin: 1.5em 0;
-    border-radius: 4px;
-}
-
-.solution-box {
-    background-color: #f2fdf5;
-    border-left: 4px solid #27ae60;
-    padding: 15px;
-    margin: 1.5em 0;
-    border-radius: 4px;
-}
-
-.theorem-box {
-    background-color: var(--light-color);
-    border-left: 4px solid var(--secondary-color);
-    padding: 15px;
-    margin: 1.5em 0;
-    border-radius: 4px;
-}
-
-.proof-box {
-    background-color: #e8f4fc;
-    border-left: 4px solid var(--info-color);
-    padding: 15px;
-    margin: 1.5em 0;
-    border-radius: 4px;
-}
-
-/* ===== STYLES POUR LES ÉQUATIONS ===== */
-.equation-container {
-    text-align: center;
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background-color: var(--light-color);
-    border-radius: var(--border-radius);
-    overflow-x: auto;
-}
-
-.equation {
-    font-size: 1.5rem;
-    font-family: 'Courier New', monospace;
     color: var(--primary-color);
 }
