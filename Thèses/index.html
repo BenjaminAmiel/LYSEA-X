@@ -7,6 +7,62 @@
     <title>Thèses | LYSEA-X</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .manifest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .manifest-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .manifest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .manifest-card.featured {
+            border-left: 4px solid #27ae60;
+        }
+        .manifest-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .manifest-card p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .read-button {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .read-button:hover {
+            background-color: #219653;
+        }
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        @media (max-width: 768px) {
+            .manifest-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -50,12 +106,18 @@
                 </p>
                 <div class="manifest-grid">
                     <div class="manifest-card featured">
+                        <h3>📜 Tome 0 – Le Processus-Vie : Fondements et Isomorphies</h3>
+                        <p>Thèse unifiée explorant le Processus-Vie comme invariant universel, avec une analyse des isomorphies dans le corps humain et les savoirs.</p>
+                        <p><em>Langue : Français</em></p>
+                        <a href="TOME_0_UNIFIE.html" class="read-button">Lire la thèse <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="manifest-card">
                         <h3>📜 Tome 0 – Le Processus-Vie</h3>
                         <p>Fondement ontologique de la DVU, avec des exemples concrets et des références aux manifestes de LYSEA-X.</p>
                         <p><em>Langue : Français</em></p>
                         <a href="TOME_0_PROCESSUS_VIE.html" class="read-button">Lire la thèse <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="manifest-card featured">
+                    <div class="manifest-card">
                         <h3>🧬 Tome 0 – Les Isomorphies du Processus-Vie dans le Corps Humain</h3>
                         <p>Une analyse biologique et systémique depuis l'invariant universel.</p>
                         <p><em>Langue : Français</em></p>
@@ -156,6 +218,25 @@
                         <p>Analyse des courants économiques et sociologiques en jargon académique pour doctorants.</p>
                         <p><em>Langue : Français</em></p>
                         <a href="TOME_3_ECONOMIE_SOCIOLOGIE_EID_ACADEMIQUE.html" class="read-button">Lire la thèse <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- Tome 0 Unifié -->
+            <section class="content-section">
+                <h2>🌌 Tome 0 Unifié – Le Processus-Vie : Fondements et Isomorphies</h2>
+                <p>
+                    <strong>Nouveauté !</strong> Une <strong>thèse unifiée</strong> qui fusionne les fondements ontologiques du Processus-Vie avec les isomorphies dans le corps humain et les savoirs. 
+                    Ce tome représente l’aboutissement de ton travail sur l’unification des savoirs sous un même cadre.
+                </p>
+                <div class="manifest-grid">
+                    <div class="manifest-card featured">
+                        <h3>📜 Tome 0 Unifié – Le Processus-Vie : Fondements et Isomorphies</h3>
+                        <p>Thèse unifiée explorant le Processus-Vie comme invariant universel, avec une analyse approfondie des isomorphies dans le corps humain et les savoirs humains.</p>
+                        <p><em>Langue : Français</em></p>
+                        <a href="TOME_0_UNIFIE.html" class="read-button">Lire la thèse <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </section>
