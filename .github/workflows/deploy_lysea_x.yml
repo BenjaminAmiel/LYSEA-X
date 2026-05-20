@@ -1,0 +1,43 @@
+name: Deploy LYSEA-X to GitHub Pages
+
+on:
+  push:
+    branches:
+      - gh-pages  # Déclenche le déploiement uniquement sur la branche gh-pages
+    paths:
+      - '**.html'       # Tous les fichiers HTML
+      - '**.md'         # Tous les fichiers Markdown
+      - 'thèses/**'     # Tous les fichiers dans le dossier thèses
+      - 'Thèses/**'     # Tous les fichiers dans le dossier Thèses (majuscule)
+      - 'MANIFESTE_*.md'
+      - 'SYNLANG_*.md'
+      - 'ANALYSE_*.md'
+      - '.github/workflows/deploy_lysea_x.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages  # Utilise explicitement la branche gh-pages
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '.'  # Déploie tout le contenu de la branche
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
